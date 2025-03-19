@@ -140,12 +140,12 @@ static void config_init(struct config *cfg)
 {
 	cfg->sbi.name = "fw_dynamic.bin";
 	cfg->sbi.addr = OPENSBI_ADDR;
-	cfg->dtb.name = "mango-sophgo-x8evb.dtb";
+	cfg->dtb.name = "sg2042-milkv-pioneer.dtb";
 	cfg->dtb.addr = DEVICETREE_ADDR;
-	cfg->kernel.name = "riscv64_Image";
+	cfg->kernel.name = "u-boot.bin";
 	cfg->kernel.addr = KERNEL_ADDR;
-	cfg->ramfs.name = "initrd.img";
-	cfg->ramfs.addr = RAMFS_ADDR;
+	cfg->ramfs.name = NULL;
+	cfg->ramfs.addr = 0;
 }
 
 uint64_t get_ddr_size(uint64_t ddr_reg_size, int ddr_channel)
@@ -182,10 +182,10 @@ static int build_ddr_info(struct config *cfg, int chip_num)
 }
 
 const char *dtb_names[] = {
-	"mango-sophgo-x8evb.dtb",
-	"mango-milkv-pioneer.dtb",
-	"mango-sophgo-pisces.dtb",
-	"mango-sophgo-x4evb.dtb",
+	"sg2042-sophgo-x8evb.dtb",
+	"sg2042-milkv-pioneer.dtb",
+	"sg2042-sophgo-pisces.dtb",
+	"sg2042-sophgo-x4evb.dtb",
 };
 
 static void build_board_info(struct config *cfg)
